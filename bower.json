@@ -2,10 +2,11 @@
   "name": "paper-toast",
   "private": true,
   "dependencies": {
-    "core-layout": "Polymer/core-layout#master",
-    "core-overlay": "Polymer/core-overlay#master",
-    "font-roboto2": "Polymer/font-roboto2#master",
-    "paper-button": "Polymer/paper-button#master",
-    "paper-transition": "Polymer/paper-transition#master"
-  }
+    "core-layout": "Polymer/core-layout#0.2.4",
+    "core-overlay": "Polymer/core-overlay#0.2.4",
+    "font-roboto2": "Polymer/font-roboto2#0.2.4",
+    "paper-button": "Polymer/paper-button#0.2.4",
+    "paper-transition": "Polymer/paper-transition#0.2.4"
+  },
+  "version": "0.2.4"
 }
