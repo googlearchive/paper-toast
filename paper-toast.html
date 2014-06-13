@@ -64,7 +64,7 @@ the toast will automatically fits at the bottom of the screen.
 <link rel="import" href="../core-transition/core-transition-css.html">
 <link rel="import" href="../core-media-query/core-media-query.html">
 
-<polymer-element name="paper-toast" attributes="text duration opened responsiveWidth swipeDisabled">
+<polymer-element name="paper-toast" attributes="text duration opened responsiveWidth swipeDisabled removeWhenDismissed">
 
 <template>
 
@@ -138,7 +138,16 @@ the toast will automatically fits at the bottom of the screen.
        * @default false
        */
       swipeDisabled: false,
-      
+
+      /**
+       * If true, the toast is removed from the document once dismissed.
+       *
+       * @attribute removeWhenDismissed
+       * @type boolean
+       * @default false
+       */
+      removeWhenDismissed: false,
+
       eventDelegates: {
         trackstart: 'trackStart',
         track: 'track',
@@ -187,6 +196,7 @@ the toast will automatically fits at the bottom of the screen.
         if (this.dragging) {
           this.shouldDismiss = true;
         } else {
+          this.classList.add('dismissing');
           this.opened = false;
           if (currentToast === this) {
             currentToast = null;
@@ -246,6 +256,11 @@ the toast will automatically fits at the bottom of the screen.
               'fade-out-down', 'fade-out-up');
         } else if (this.shouldDismiss) {
           this.dismiss();
+        } else if (cl.contains('dismissing')) {
+          cl.remove('dismissing');
+          if (this.removeWhenDismissed) {
+            this.remove();
+          }
         }
         this.shouldDismiss = false;
       }
