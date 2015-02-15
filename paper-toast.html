@@ -25,7 +25,13 @@ Example:
         el.show();
       }
     </script>
-    
+
+The fading out method can be customized by setting the `transition` attribute.
+
+Example :
+
+    <paper-toast id="toast4" transition="core-transition-top" text="Fading to the top"></paper-toast>
+
 An action button can be presented in the toast.
 
 Example (using Polymer's data-binding features):
@@ -58,7 +64,7 @@ To make it fit at the bottom of the screen:
       left: 0;
       width: 100%;
     }
-  
+
 When the screen size is smaller than the `responsiveWidth` (default to 480px),
 the toast will automatically fits at the bottom of the screen.
 
@@ -86,13 +92,13 @@ Fired when the `paper-toast` has completely closed.
 <link rel="import" href="../core-transition/core-transition-css.html">
 <link rel="import" href="../core-media-query/core-media-query.html">
 
-<polymer-element name="paper-toast" attributes="text duration opened responsiveWidth swipeDisabled autoCloseDisabled" role="status">
+<polymer-element name="paper-toast" attributes="text duration opened responsiveWidth swipeDisabled autoCloseDisabled transition" role="status">
 
   <template>
 
     <link rel="stylesheet" href="paper-toast.css" >
 
-    <core-overlay id="overlay" autoFocusDisabled autoCloseDisabled="{{autoCloseDisabled}}" opened="{{opened}}" target="{{}}" transition="core-transition-bottom"></core-overlay>
+    <core-overlay id="overlay" autoFocusDisabled autoCloseDisabled="{{autoCloseDisabled}}" opened="{{opened}}" target="{{}}" transition="{{transition}}"></core-overlay>
 
     <div class="toast-container" horizontal layout>
 
@@ -171,6 +177,16 @@ Fired when the `paper-toast` has completely closed.
          * @default false
          */
         autoCloseDisabled: false,
+
+        /**
+         * Fading out transition type.
+         * Valid values can be found in core-transition/core-transition-css.html
+         *
+         * @attribute transition
+         * @type string
+         * @default core-transition-bottom
+         */
+        transition: 'core-transition-bottom',
 
         narrowMode: false,
 
