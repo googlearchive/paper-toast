@@ -39,7 +39,6 @@
     paper-button {
       margin: 20px;
     }
-    
   </style>
   
 </head>
@@ -51,6 +50,10 @@
   
   <paper-button raised onclick="document.querySelector('#toast3').show()">Send Message</paper-button>
 
+  <br/>
+
+  <paper-button raised onclick="document.querySelector('#toast4').show()">Fade out top</paper-button>
+
   <paper-toast id="toast1" text="Your draft has been discarded."></paper-toast>
   
   <paper-toast id="toast2" role="alert" text="Connection timed out. Showing limited messages.">
@@ -58,6 +61,9 @@
   </paper-toast>
   
   <paper-toast id="toast3" class="capsule" text="Message sent" style="padding-right: 60px;"></paper-toast>
-  
+
+  <paper-toast id="toast4" class="capsule" transition="core-transition-top" text="Fading to the top" style="top: 20px;max-height: 40px;"></paper-toast>
+
+
 </body>
 </html>
